@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link href="fonts.googleapis.com" rel="stylesheet" />
+    <style>
+body {
+
+}
+      #page_title {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  
+      }
+    </style>
     <!-- Link to static CSS file if you have one in /public/css/style.css -->
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body>
-    <h1><%= message %></h1>
-
+    <div class="page_title">
+      <h1>The Essence of Our Basking Ridge community</h1>
+    </div>
     <p>This content is rendered dynamically using EJS.</p>
   </body>
 </html>
