@@ -4,25 +4,208 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <script src="main.js"></script>
+    
     <link href="fonts.googleapis.com" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <style>
+      .overlay {
+   
+   height: 100%;
+   width: 0;
+   position: fixed; 
+   z-index: 1; 
+   left: 0;
+   top: 0;
+   background-color: rgb(0,0,0); 
+   background-color: rgba(0,0,0, 0.9); 
+   overflow-x: hidden; 
+   transition: 0.5s; 
+ }
+ 
+ 
+ .overlay-content {
+   position: relative;
+   top: 25%; 
+   width: 100%; 
+   text-align: center; 
+   margin-top: 30px; 
+ }
+
+ .overlay a {
+   padding: 8px;
+   text-decoration: none;
+   font-size: 36px;
+   color: #818181;
+   display: block; 
+   transition: 0.3s; 
+ }
+ 
+
+ .overlay a:hover, .overlay a:focus {
+   color: #f1f1f1;
+ }
+
+ .overlay .closebtn {
+   position: absolute;
+   top: 20px;
+   right: 45px;
+   font-size: 60px;
+ }
+ 
+ 
+ @media screen and (max-height: 450px) {
+   .overlay a {font-size: 20px}
+   .overlay .closebtn {
+     font-size: 40px;
+     top: 15px;
+     right: 35px;
+   }
+ }
 body {
 
+
+  font-family: Arial, Helvetica, sans-serif;
 }
-      #page_title {
-  font-family: "DM Serif Display", serif;
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0; /* Start at top-left */
+  }
+  to {
+    background-position: -400px 0; /* Move 400px to the left */
+  }
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+.masked-title {
+    font-size: 8rem;
+    font-weight: bold;
+    color: transparent;
+    background-image: url('https://www.mrlocalhistory.org/wp-content/uploads/2019/04/Charter_Day_Ariel.jpg'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.section {
+    scroll-snap-align: start; 
+}
+
+  .page_title {
+  display:flex;
+  justify-content:center;
+
   font-weight: 400;
   font-style: normal;
-  
+  text-align:center;
+  border-color: white;
+  transition: transform 0.5s ease-out;
+  will-change: transform; 
+  font-size:30px;
+
+
       }
+      .page_title :hover { 
+       transform: scale(1.1);
+       text-shadow: rgb(223, 198, 181);
+     
+       
+      }
+      .page_title:hover::before,
+.page_title:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+  scroll-padding-top:10px;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    /* animation: burst 0.8s ease-out forwards; */
+}
+
+.page_title:hover::before {
+    background: radial-gradient(circle, rgb(213, 193, 177), transparent);
+    z-index: -1;
+}
+
+.page_title:hover::after {
+    background: radial-gradient(circle, rgba(0, 200, 255, 0.6), transparent);
+    z-index: -2;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
     </style>
     <!-- Link to static CSS file if you have one in /public/css/style.css -->
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body>
-    <div class="page_title">
-      <h1>The Essence of Our Basking Ridge community</h1>
+<div class="scroll-container">
+  <div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="#">About</a>
+      <a href="#">Find a Activity</a>
+      <a href="#"></a>
+      <a href="#">Contact</a>
     </div>
-    <p>This content is rendered dynamically using EJS.</p>
+  
+  </div>
+  <div style="background-color:rgba(0,0,0, 0.3); opacity:0.4; height:200%;">
+
+  <div class="container"  onclick="myFunction(this) ">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+</div>
+    <div class="page_title">
+      <h1 class="masked-title">The Basking Ridge Community</h1>
+    </div>
+  </div>
+    <p>This conten</p>
   </body>
+
 </html>
