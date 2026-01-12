@@ -185,20 +185,26 @@ position:fixed;
     padding:none;
     margin:0;
 }
+.scroll-container {
+  scroll-snap-type: y mandatory;
+}
 
+.child {
+  scroll-snap-align: start;
+}
     </style>
     <!-- Link to static CSS file if you have one in /public/css/style.css -->
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body>
 <div class="scroll-container">
-<div id="myNav" class="overlay">
+<div id="myNav" class="overlay" >
 
     <!-- Button to close the overlay navigation -->
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   
     <!-- Overlay content -->
-    <div class="overlay-content">
+    <div class="overlay-content" >
       <a href="#">About</a>
       <a href="#">Find a Activity</a>
       <a href="#"></a>
@@ -214,7 +220,7 @@ position:fixed;
     <div class="bar3"></div>
 </div>
 </div>
-    <div class="page_title">
+    <div class="page_title child">
       <h1 class="masked-title" style='padding-top:30px'>The Basking Ridge Community</h1>
 </div>
   </div>
