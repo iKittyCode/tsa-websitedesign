@@ -104,6 +104,20 @@ body {
     animation: animate-background 5s infinite alternate linear;
     color:black;
 }
+.masked-title-2 {
+    font-size: 8rem;
+    font-weight: bold;
+    color: transparent;
+    pointer-events:none;
+    background-image: url('https://www.shutterstock.com/image-photo/basking-ridge-nj-aerial-view-600nw-2468803517.jpg'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+    color:black;
+}
 
 @keyframes animate-background {
     0% {
@@ -259,10 +273,13 @@ section {
     <div class="page_title child element-scroll">
       <h1 class="masked-title" style='padding-top:30px'>The Basking Ridge Community</h1>
 </div>
+  <div>
+  <p></p>
+  </div>
   
-  
-  <div class="element-scroll">
-  <div class="slider" style="">
+  <div class="element-scroll" style="padding-top:50px; text-align:center;">
+  <h1 class="masked-title-2"> Our People</h1>
+  <div class="slider"  >
 	<section >
 		<h1>Section One</h1>
 	</section>
