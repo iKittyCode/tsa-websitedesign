@@ -200,12 +200,23 @@ body {
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
-
+.overallslide { 
+    display: block; 
+  overflow-y: scroll;  
+  height: 100vh;      
+  scroll-snap-type: y mandatory;
+}
+.element-scroll{
+    min-width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+}
 section {
   min-width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
 }
+
 
 /* .scroll-container {
   scroll-snap-type: y mandatory;
@@ -220,7 +231,8 @@ section {
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body>
-<div class="scroll-container">
+<div class="scroll-container"> 
+
 <div id="myNav" class="overlay" style="z-index:10000" >
 
     <!-- Button to close the overlay navigation -->
@@ -243,12 +255,14 @@ section {
     <div class="bar3"></div>
 </div>
 </div>
-    <div class="page_title child">
+<div class="overallslide">
+    <div class="page_title child element-scroll">
       <h1 class="masked-title" style='padding-top:30px'>The Basking Ridge Community</h1>
 </div>
-  </div>
   
-  <div class="slider" style="padding-top:40">
+  
+  <div class="element-scroll">
+  <div class="slider" style="">
 	<section >
 		<h1>Section One</h1>
 	</section>
@@ -265,6 +279,8 @@ section {
 		<h1>Section Five</h1>
 	</section>
 </div>
+</div> 
+
   </body>
 
 </html>
