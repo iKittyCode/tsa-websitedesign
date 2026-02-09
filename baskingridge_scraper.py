@@ -54,12 +54,17 @@ def scrape_basking_ridge_full():
             if item['description'][:60] not in seen:
                 unique_results.append(item)
                 seen.add(item['description'][:60])
-                for jbob in unique_results: 
-                    if "born" in jbob["description"]:
+        for jbob in unique_results: 
+            if "(born" in jbob["description"]:
+                people_results.append(jbob)
 
 
-        with open("accurate_events.json", "w") as f:
+
+        with open("public/accurate_events.json", "w") as f:
             json.dump(unique_results, f, indent=4)
+        with open("public/accurate_people.json", "w") as f: 
+            json.dump(people_results, f, indent=4)
+            
             
         print(f"Success! Saved {len(unique_results)} full-length events to accurate_events.json.")
     
