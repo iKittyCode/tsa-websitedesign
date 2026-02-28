@@ -27,7 +27,7 @@ async function fetchData() {
     
    for (people of people_data) { 
      const newSection = document.createElement("section")
-     newSection.innerHTML = `<h1> ${people["description"]} </h1>`
+     newSection.innerHTML = `<h1 style="padding-bottom:50px"> ${people["name"]} </h1>  <img src= ${people["image"]} width=240; height=300;>`
      people_div.appendChild(newSection)
    }
   } catch (error) {

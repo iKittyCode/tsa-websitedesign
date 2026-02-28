@@ -37,7 +37,7 @@ for lab in newround1content:
     images_results = results["images_results"]
     lab["image"] = images_results[0]["original"]
     newround2content.append(lab)
-with open ("accurate_people.json", "w" ) as f: 
+with open ("public/accurate_people.json", "w" ) as f: 
     json.dump(newround2content,f , indent=4)
 
 
