@@ -49,6 +49,7 @@ def scrape_basking_ridge_full():
         unique_results = []
         seen = set()
         people_results = []
+        building_results = []
         for item in results:
             # Check the first 60 chars just to identify duplicates, but save the whole thing
             if item['description'][:60] not in seen:
@@ -57,6 +58,8 @@ def scrape_basking_ridge_full():
         for jbob in unique_results: 
             if "(born" in jbob["description"]:
                 people_results.append(jbob)
+            if "built" in jbob["description"]:
+                building_results.append(jbob)
 
 
 
@@ -64,6 +67,9 @@ def scrape_basking_ridge_full():
             json.dump(unique_results, f, indent=4)
         with open("public/accurate_people.json", "w") as f: 
             json.dump(people_results, f, indent=4)
+        with open("public/accurate_buildings.json", "w") as f: 
+            json.dump(building_results, f, indent=4)
+        
             
             
         print(f"Success! Saved {len(unique_results)} full-length events to accurate_events.json.")
