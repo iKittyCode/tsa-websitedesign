@@ -8,6 +8,12 @@
     <script src="main.js" defer></script>
     
     <link href="fonts.googleapis.com" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
     <link href="style.css" rel="stylesheet" />
     <style>
 .overlay {
@@ -255,8 +261,8 @@ section {
   
     <!-- Overlay content -->
     <div class="overlay-content" >
-      <a href="#">About</a>
-      <a href="#">Find a Activity</a>
+      <a href="#people">Our People</a>
+      <a href="#map">Map of Basking Ridge</a>
       <a href="#"></a>
       <a href="#">Contact</a>
     </div>
@@ -282,8 +288,20 @@ section {
   <h1 class="masked-title-2"> Our People</h1>
   <div class="slider"  id="people">
 
+
 </div>
-</div> 
+
+ </div> 
+ <div id="overallmap" class="element-scroll">
+ <h1 class="masked-title-2 " style="text-align:center"> Map of Basking Ridge</h1>
+ <div id="map" class="" style=" text-align:center; height:100vh;" ></div>
+
+</div>
+<div></div>
+</div>
+
+
+
 
   </body>
 
