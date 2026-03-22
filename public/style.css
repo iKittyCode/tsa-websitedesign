@@ -144,7 +144,7 @@ box-sizing:border-box;
   .hero-btn:hover {
     background: black;
     color: white;
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
   
 
