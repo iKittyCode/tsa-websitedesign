@@ -37,7 +37,7 @@ async function fetchData() {
     
    for (people of people_data) { 
      const newSection = document.createElement("section")
-     newSection.innerHTML = `<div class="person-card"><h1 style="padding-bottom:50px" > ${people["name"]} </h1>  <img src= ${people["image"]} width=240; height=300;> <p>${people["description"]}</p> </div>`
+     newSection.innerHTML = `<div class="person-card" style="justify-content:center"><h1 style="padding-bottom:50px" > ${people["name"]} </h1> <div style="justify-content:center"> <img src= ${people["image"]} width=240; height=300;> </div> <p>${people["description"]}</p> </div>`
      people_div.appendChild(newSection)
    }
   } catch (error) {
@@ -70,3 +70,40 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".element-scroll").forEach(el => {
   observer.observe(el);
 });
+const sections = document.querySelectorAll("#people section");
+
+const sliderObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      sections.forEach(s => s.classList.remove("active"));
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.6 });
+
+sections.forEach(sec => sliderObserver.observe(sec));
+function submit() {
+  let fname = document.getElementById("fname")
+  let lname = document.getElementById("lname")
+  let subject = document.getElementById("subject")
+  let fnameval = fname.value
+  let lnameval = lname.value
+  let subjectval = subject.value
+
+  const userapp = { fnameval, lnameval, subjectval};
+  if (localStorage.getItem("user")) {
+  var storedUser = JSON.parse(localStorage.getItem('user'));
+  storedUser.append(userapp)
+  console.log(storedUser)
+  localStorage.setItem("user", JSON.stringify(storedUser))
+  
+  } else { 
+    let user = []
+    user.push(userapp)
+    console.log(user)
+    localStorage.setItem("user", JSON.stringify(user))
+  }
+
+
+
+}
