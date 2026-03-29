@@ -49,15 +49,15 @@ window.addEventListener("scroll", () => {
   document.querySelector(".progress-bar").style.width = scrolled + "%";
 });
 
-document.addEventListener("mousemove", e => {
-  const glow = document.createElement("div");
-  glow.className = "cursor-glow";
-  glow.style.left = e.pageX + "px";
-  glow.style.top = e.pageY + "px";
-  document.body.appendChild(glow);
+// document.addEventListener("mousemove", e => {
+//   const glow = document.createElement("div");
+//   glow.className = "cursor-glow";
+//   glow.style.left = e.pageX + "px";
+//   glow.style.top = e.pageY + "px";
+//   document.body.appendChild(glow);
 
-  setTimeout(() => glow.remove(), 500);
-});
+//   setTimeout(() => glow.remove(), 500);
+// });
 fetchData();
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -93,7 +93,7 @@ function submit() {
   const userapp = { fnameval, lnameval, subjectval};
   if (localStorage.getItem("user")) {
   var storedUser = JSON.parse(localStorage.getItem('user'));
-  storedUser.append(userapp)
+  storedUser.push(userapp)
   console.log(storedUser)
   localStorage.setItem("user", JSON.stringify(storedUser))
   
@@ -106,4 +106,21 @@ function submit() {
 
 
 
+} 
+function loadpast () {
+  const submit_div = document.getElementById("submit")
+  let pastmessage = JSON.parse(localStorage.getItem("user"))
+  console.log(pastmessage)
+  const pastloaders = document.getElementsByClassName("pastdata") 
+  for (pastloader of pastloaders) {
+    pastloader.innerHtml=""
+  }
+  for (message of pastmessage) { 
+    
+    const newSection = document.createElement("div")
+    newSection.className="pastdata"
+    newSection.style = "padding-top:5%;" 
+    newSection.innerHTML = `<h2>${message.fnameval + " " + message.lnameval} </h2> <p> ${message.subjectval}</p>`
+    submit_div.appendChild(newSection)
+  }
 }
